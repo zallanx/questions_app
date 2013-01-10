@@ -1,2 +1,14 @@
-<h1>Schools#index</h1>
-<p>Find me in app/views/schools/index.html.erb</p>
+<div class="container">
+	<h1><center>All schools</center></a></h1>
+
+
+	<ul class="users">
+		<% @schools.each do |school| %>
+			<li><%= link_to school.name, school %></li>
+		<% end %>	
+
+	</ul>
+
+	<%= link_to "New School", new_school_path %>
+
+</div>

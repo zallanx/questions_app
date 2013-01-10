@@ -1,2 +1,19 @@
-<h1>Schools#new</h1>
-<p>Find me in app/views/schools/new.html.erb</p>
+<div class="container">
+
+	<h1><center>New School</center></h1>
+
+	<div class="row">
+	  <div class="span6 offset3">
+	    <%= form_for(@school) do |f| %>
+
+
+	      <%= f.label :name, "School name" %>
+	      <%= f.text_field :name %>
+
+
+	      <%= f.submit "Create school", class: "btn btn-large btn-primary" %>
+	    <% end %>
+	  </div>
+	
+	</div>
+</div>

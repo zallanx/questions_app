@@ -1,19 +1,11 @@
 SchoolQuestions::Application.routes.draw do
-  get "courses/index"
+  
+  resources :courses #required depulicate for nested resources
+  resources :schools do
+    resources :courses#, :only => [:create, :index, :new]
+  end
 
-  get "courses/show"
-
-  get "courses/new"
-
-  get "courses/edit"
-
-  get "schools/index"
-
-  get "schools/show"
-
-  get "schools/new"
-
-  get "schools/edit"
+  root to: 'schools#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
