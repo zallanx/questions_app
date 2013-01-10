@@ -1,4 +1,20 @@
 SchoolQuestions::Application.routes.draw do
+  get "courses/index"
+
+  get "courses/show"
+
+  get "courses/new"
+
+  get "courses/edit"
+
+  get "schools/index"
+
+  get "schools/show"
+
+  get "schools/new"
+
+  get "schools/edit"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
