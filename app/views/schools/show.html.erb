@@ -1,10 +1,7 @@
 <div class="container">
-	<h1>
-		This is <%= link_to @school.name, @school %>
-		<p>These are its courses:</p>
+		<h1>This is <%= link_to @school.name, @school %></h1>
+		<p>These are its <%= link_to "courses:", school_courses_path(@school) %></p>
 		<ol class="microposts">
-
-		 </ol>
-
-	</h1>	
+			<%= render @courses %>
+		 </ol>	
 </div>
