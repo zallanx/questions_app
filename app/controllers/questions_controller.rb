@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  
   def index
   end
 
@@ -6,9 +7,19 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @course = Course.find(params[:course])
+    self.current_course = @course
+    @question = Question.new
   end
 
   def create
+    @question = Question.new(params[:question]) #change to current_user.create
+    @course = @question.course
+    if @question.save
+      redirect_to school_course_path(@course.school, @course)
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -19,4 +30,6 @@ class QuestionsController < ApplicationController
 
   def destroy
   end
+
+
 end

@@ -4,8 +4,8 @@ class CoursesController < ApplicationController
   end
 
   def show
-  	#just showing one course.  Need?
-  	@course = current_school.courses.find(params[:id])
+  	@course = Course.find(params[:id])
+  	@questions = @course.questions.all #change to sections if needed
   end
 
   def new
@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
   	@course = current_school.courses.build(params[:course])
   	if @course.save
   		#flash message, encourage to populate and invite users(...)
-  		redirect_to school_posts_path(current_school) #shows list of course questions
+  		redirect_to school_courses_path(current_school) #shows list of course questions
   	else
   		render 'new'
   	end

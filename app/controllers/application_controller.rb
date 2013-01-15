@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  include SchoolsHelper
+  include CoursesHelper
+  include QuestionsHelper
+  
 end

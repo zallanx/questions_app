@@ -11,7 +11,8 @@
 #
 
 class Course < ActiveRecord::Base
-  attr_accessible :heading, :name # :school_id
+  attr_accessible :heading, :name #, :school_id
   belongs_to :school
+  has_many :questions
 
 end

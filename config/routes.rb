@@ -1,23 +1,14 @@
 SchoolQuestions::Application.routes.draw do
   
-  get "questions/index"
-
-  get "questions/show"
-
-  get "questions/new"
-
-  get "questions/create"
-
-  get "questions/edit"
-
-  get "questions/update"
-
-  get "questions/destroy"
-
-  resources :courses #required depulicate for nested resources
   resources :schools do
-    resources :courses#, :only => [:create, :index, :new]
+    resources :courses 
   end
+
+  resources :questions
+
+  
+
+
 
   root to: 'schools#index'
 

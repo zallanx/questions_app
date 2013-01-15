@@ -1,12 +1,13 @@
 <div class="container">
-	<h2><center>All courses for <%= current_school.name %></center></a></h2>
+	<h2><center>All courses for <%= link_to current_school.name, schools_path %></center></a></h2>
 
 
 	<ul class="users">
 		<% @courses.each do |course| %>
-			<li><%= course.heading %> - <%= link_to course.name, course %></li>
+			<li><%= course.heading %> - <%= link_to course.name, [current_school, course] %></li>
 		<% end %>	
 	</ul>
+
 
 	<%= link_to "Add a course", new_school_course_path %> <!-- the combined resource_nestedreosurce_path works -->
 
