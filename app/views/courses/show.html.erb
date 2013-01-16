@@ -4,8 +4,9 @@
 		<ol class="microposts">
 			<%= render @questions %>
 		</ol>
-		<%= link_to "Ask a new question", new_question_path(:course => @course.id) %>	
-		in <%= @course.name %>
+		<p><%= link_to "Ask a new question", new_question_path(:course => @course.id) %>	
+		in <%= @course.name %></p>
+		<p><%= link_to "Back to ", school_courses_path(current_school) %><%= current_school.name %>'s courses</p>
 
 
 </div>

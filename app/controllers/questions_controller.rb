@@ -8,7 +8,6 @@ class QuestionsController < ApplicationController
 
   def new
     @course = Course.find(params[:course])
-    self.current_course = @course
     @question = Question.new
   end
 
