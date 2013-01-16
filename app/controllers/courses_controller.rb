@@ -1,4 +1,4 @@
-class CoursesController < ApplicationController
+class CoursesController < ApplicationController #needs an EXAM DATE
   def index
   	@courses = current_school.courses.paginate(page: params[:page])
   end
