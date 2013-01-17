@@ -17,7 +17,7 @@ class CoursesController < ApplicationController #needs an EXAM DATE
   	@course = current_school.courses.build(params[:course])
   	if @course.save
   		#flash message, encourage to populate and invite users(...)
-  		redirect_to school_courses_path(current_school) #shows list of course questions
+  		redirect_to school_course_path(current_school, @course) #shows list of course questions
   	else
   		render 'new'
   	end

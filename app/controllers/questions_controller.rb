@@ -11,11 +11,11 @@ class QuestionsController < ApplicationController
 
   def new
     @course = Course.find(params[:course])
-    @question = Question.new
+    @question = current_user.questions.new
   end
 
   def create
-    @question = Question.new(params[:question]) #change to current_user.create
+    @question = current_user.questions.create(params[:question]) #change to current_user.create
     @course = @question.course
     if @question.save
       redirect_to school_course_path(@course.school, @course)

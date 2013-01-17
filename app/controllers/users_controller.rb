@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_filter :signed_in_user, only: [:index, :show, :edit, :update, :destroy] #check to see if there is a user signed in.  Signed in users only allow to see all, and edit themselves
   before_filter :correct_user, only: [:edit, :update] #check to see if @current_user is user found via params[:id]
   before_filter :admin_user, only: :destroy
@@ -51,7 +50,6 @@ class UsersController < ApplicationController
       #flash[:notice] = "Cannot delete self."
     end
     redirect_to users_url
-  end
   end
 
   #---------------- Private Methods ----------------#
