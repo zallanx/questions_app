@@ -1,11 +1,10 @@
 SchoolQuestions::Application.routes.draw do
   
 
-  get "votes/create"
-
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :votes, only: [:index, :create]
+  resources :answers, only: [:create, :update, :destroy]
 
   resources :schools do
     resources :courses 

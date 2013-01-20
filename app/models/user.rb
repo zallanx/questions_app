@@ -10,6 +10,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  remember_token  :string(255)
+#  answered        :boolean
 #
 
 class User < ActiveRecord::Base
@@ -27,6 +28,7 @@ class User < ActiveRecord::Base
 
   has_many :questions
   has_many :votes
+  has_many :answers
   
   private
 

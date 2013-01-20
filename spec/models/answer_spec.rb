@@ -1,18 +1,17 @@
 # == Schema Information
 #
-# Table name: votes
+# Table name: answers
 #
 #  id          :integer          not null, primary key
-#  user_id     :integer
 #  question_id :integer
-#  up          :boolean
+#  user_id     :integer
+#  content     :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  answer_id   :integer
 #
 
 require 'spec_helper'
 
-describe Vote do
+describe Answer do
   pending "add some examples to (or delete) #{__FILE__}"
 end

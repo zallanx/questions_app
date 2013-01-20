@@ -4,11 +4,11 @@
 
 	<ul class="users">
 		<% @schools.each do |school| %>
-			<li><%= link_to school.name, school %></li>
+			<li><%= link_to school.name, school_courses_path(school) %></li>
 		<% end %>	
 
 	</ul>
 
-	<%= link_to "New School", new_school_path %>
+	Don't see your school here?  <%= link_to "Add your school", new_school_path %>
 
 </div>

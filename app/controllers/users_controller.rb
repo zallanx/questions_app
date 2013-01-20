@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user #new sign ups are automatically logged in
       # UserMailer.registration_confirmation(@user).deliver
-      #flash[:success] = "Welcome to HB Communicator!" #assign the :success symbol to that message
+      flash[:success] = "Welcome to Asks!" #assign the :success symbol to that message
       redirect_to current_user
     else
       render 'new'
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def update
     #@user = User.find(params[:id])
     if @user.update_attributes(params[:user]) #VALIDATIONS comes in here when attempting to save, resulting in error messages
-      #flash[:success] = "Profie updated."
+      flash[:success] = "Profie updated."
       sign_in @user #the rememeber_token gets reset when user is saved
       redirect_to current_user
     else
@@ -45,9 +45,9 @@ class UsersController < ApplicationController
   def destroy
     if User.find(params[:id]) != current_user
       User.find(params[:id]).delete
-      #flash[:success] = "User deleted."
+      flash[:success] = "User deleted."
     else
-      #flash[:notice] = "Cannot delete self."
+      flash[:notice] = "Cannot delete yoself."
     end
     redirect_to users_url
   end
@@ -62,6 +62,11 @@ class UsersController < ApplicationController
 
   def new_user
     redirect_to(current_user) unless current_user.nil?
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user?(@user) #! could be changed to signin_url with new flash
   end
 
 end

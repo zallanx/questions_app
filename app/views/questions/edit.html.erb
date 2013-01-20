@@ -1,2 +1,22 @@
-<h1>Questions#edit</h1>
-<p>Find me in app/views/questions/edit.html.erb</p>
+<div class="container">
+
+	<h2><center>Edit your question</center></h2>
+	<div class="row">
+	  <div class="span6 offset3">
+	    <%= form_for(@question) do |f| %>
+ 
+
+	      <%= f.label :title, "Question title" %>
+	      <%= f.text_field :title %>
+
+	      <%= f.label :content, "Question content" %>
+	      <%= f.text_area :content %>
+
+	      <p><h1> </h1></p>
+
+	      <%= f.submit "Finish editing", class: "btn btn-large btn-primary" %>
+	    <% end %>
+	  </div>
+	</div>
+</div>
+

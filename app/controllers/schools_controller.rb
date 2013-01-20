@@ -17,7 +17,7 @@ class SchoolsController < ApplicationController
   	if @school.save
   		#school cookie storage
   		#flash message
-  		redirect_to @school #current_school?
+  		redirect_to school_courses_path(@school) #current_school?
   	else
   		render 'new'
   	end

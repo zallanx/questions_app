@@ -1,2 +1,30 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<% provide(:title, @question.title) %>
+
+<div class="container">
+
+	<h1><%= @question.title %></h1>
+
+	<p><%= @question.content %></p>
+
+	<section>
+		<% if(@user == current_user) %>
+			<%= link_to "Edit your question", edit_question_path(@question) %>
+		<% end %>
+	</section>
+
+
+	<section>question writer is <%= @user.username %></section>
+	<section>current_user is <%= current_user.username %></section>
+
+	<ol class="microposts">
+		<%= render @answers %>
+	</ol>
+
+	<section>
+		<% if @question.user != current_user %>
+			<%= render 'shared/answer_form' %>
+		<% end %>
+	</section>
+
+
+</div>

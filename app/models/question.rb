@@ -12,13 +12,16 @@
 #  course_id     :integer
 #  user_id       :integer
 #  answer_status :boolean
+#  answered      :string(255)
 #
 
 class Question < ActiveRecord::Base
-  attr_accessible :content, :points, :title, :type, :course_id, :answer_status
+  attr_accessible :content, :points, :title, :type, :course_id, :answer_status, :answered
+  
   belongs_to :course
   belongs_to :user
   has_many :votes
+  has_many :answers
 
   default_scope order: 'questions.created_at DESC'
 end

@@ -1,7 +1,7 @@
 <div class="container">
 
 		<h1>This is <%= link_to @course.heading, school_course_path(current_school, @course) %> - <%= @course.name %></h1>
-		<p>These are a total of <%= pluralize(@questions.count, 'question' ) %> asked</p>
+		<p><%= pluralize(@questions.count, 'question' ) %> asked</p>
 
 		<p><%= link_to "Ask a new question", new_question_path(:course => @course.id) %>	
 		in <%= @course.name %></p>
