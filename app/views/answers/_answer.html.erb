@@ -30,5 +30,11 @@
   	Votes: <%= answer.votes.where(:up => true).count - answer.votes.where(:up => false).count %>
   </span>
 
+  <% if current_user?(answer.user) %>
+    <%= link_to "delete", answer, method: :delete,
+                                     data: { confirm: "Are you sure?" },
+                                     title: answer.content %>
+  <% end %>
+
 
 </li>

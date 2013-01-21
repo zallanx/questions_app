@@ -6,11 +6,14 @@
 	    <%= form_for([@current_school, @course]) do |f| %>
 
 
-	      <%= f.label :name, "Course name " %>
-	      <%= f.text_field :name %>
-
 	      <%= f.label :heading, "Course heading" %>
-	      <%= f.text_field :heading %>
+	      <%= f.text_field :heading, placeholder: "eg. 'PHYS 008' " %>
+
+
+	      <%= f.label :name, "Course name " %>
+	      <%= f.text_field :name, placeholder: "eg. 'Physics for Architects'" %>
+
+
 
 	      <p><h1> </h1></p>
 

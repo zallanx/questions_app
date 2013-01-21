@@ -16,12 +16,15 @@
 	<section>question writer is <%= @user.username %></section>
 	<section>current_user is <%= current_user.username %></section>
 
+	<section><%= @list_of_users %></section>
+	<section><%= @do_not_show_form %></section>
+
 	<ol class="microposts">
 		<%= render @answers %>
 	</ol>
 
 	<section>
-		<% if @question.user != current_user %>
+		<% if(@question.user != current_user) and (@do_not_show_form == false) %>
 			<%= render 'shared/answer_form' %>
 		<% end %>
 	</section>

@@ -7,11 +7,29 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    
+
     @question = Question.find(params[:id])
     @course = @question.course
     @user = @question.user
     @answers = @question.answers.all
     @answer = current_user.answers.build
+
+    #-- If a question has been answered by a user, the form does not show up anymore (tbr)
+
+    @list_of_users = [] unless @list_of_users
+    
+    @answers.each do |answer|
+      @list_of_users.push(answer.user.username)
+    end
+
+    if @list_of_users.include?(current_user.username)
+      @do_not_show_form = true
+    else
+      @do_not_show_form = false
+    end
+
+    #--
 
   end
 
@@ -24,7 +42,6 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.create(params[:question]) #change to current_user.create
     @course = @question.course
     if @question.save
-      #@question.answered = [] 
       redirect_to school_course_path(@course.school, @course)
     else
       render 'new'

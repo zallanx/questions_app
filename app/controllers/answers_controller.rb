@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_filter :signed_in_user, only: [:create, :update, :destroy]
-  # before_filter :correct_user, only: [:create, :update, :destroy]
+  before_filter :correct_user, only: [:destroy]
 
   def create
   	@answer = current_user.answers.build(params[:answer])
@@ -16,8 +16,16 @@ class AnswersController < ApplicationController
   end
 
   def destroy
+    @answer.destroy
+    redirect_to question_path(@answer.question)
   end
 
   private
+
+    def correct_user
+      @answer = Answer.find(params[:id])
+      @user = @answer.user
+      redirect_to(root_path) unless current_user?(@user)
+    end
 
 end
