@@ -16,6 +16,8 @@
 
 class Question < ActiveRecord::Base
   attr_accessible :content, :points, :title, :type, :course_id, :answer_status
+
+  is_impressionable #to get view counts
   
   belongs_to :course
   belongs_to :user

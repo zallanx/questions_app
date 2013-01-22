@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+
+  impressionist :actions=>[:show] #view counter
+
   before_filter :signed_in_user, only: [:new, :edit, :create, :edit, :update, :destroy]
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
@@ -7,9 +10,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    
 
     @question = Question.find(params[:id])
+    @view_count = @question.impressionist_count
     @course = @question.course
     @user = @question.user
     @answers = @question.answers.all
@@ -18,7 +21,7 @@ class QuestionsController < ApplicationController
     #-- If a question has been answered by a user, the form does not show up anymore (tbr)
 
     @list_of_users = [] unless @list_of_users
-    
+
     @answers.each do |answer|
       @list_of_users.push(answer.user.username)
     end
@@ -29,8 +32,7 @@ class QuestionsController < ApplicationController
       @do_not_show_form = false
     end
 
-    #--
-
+    #---------------------------------------------------------------------------------------
   end
 
   def new

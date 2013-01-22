@@ -23,5 +23,11 @@
   <span>
   	Votes: <%= question.votes.where(:up => true).count - question.votes.where(:up => false).count %>
   </span>
+  <span>
+    Views: <%= question.impressionist_count %>
+  </span>
+  <span>
+    Answers: <%= question.answers.count %>
+  </span>
 
 </li>
