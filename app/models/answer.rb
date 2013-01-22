@@ -15,7 +15,7 @@ class Answer < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :question
-  has_many :votes
+  has_many :a_votes #change to :votes
 
   default_scope order: 'answers.created_at DESC'
 

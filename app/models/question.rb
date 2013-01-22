@@ -12,11 +12,10 @@
 #  course_id     :integer
 #  user_id       :integer
 #  answer_status :boolean
-#  answered      :string(255)
 #
 
 class Question < ActiveRecord::Base
-  attr_accessible :content, :points, :title, :type, :course_id, :answer_status, :answered
+  attr_accessible :content, :points, :title, :type, :course_id, :answer_status
   
   belongs_to :course
   belongs_to :user

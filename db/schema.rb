@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130120193415) do
+ActiveRecord::Schema.define(:version => 20130122001630) do
+
+  create_table "a_votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "answer_id"
+    t.boolean  "up"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -39,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20130120193415) do
     t.integer  "course_id"
     t.integer  "user_id"
     t.boolean  "answer_status"
-    t.string   "answered"
   end
 
   create_table "schools", :force => true do |t|
@@ -53,10 +60,9 @@ ActiveRecord::Schema.define(:version => 20130120193415) do
     t.string   "email"
     t.string   "password_digest"
     t.boolean  "admin"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "remember_token"
-    t.integer  "answered_questions"
   end
 
   create_table "votes", :force => true do |t|

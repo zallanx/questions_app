@@ -12,11 +12,12 @@
 #
 
 class Vote < ActiveRecord::Base
-  attr_accessible :question_id, :answer_id, :up
+  attr_accessible :question_id, :up
 
   belongs_to :user
   belongs_to :question
-  belongs_to :answer 
+  #belongs_to :answer
 
   validates :user_id, :uniqueness => { :scope => :question_id }
+
 end

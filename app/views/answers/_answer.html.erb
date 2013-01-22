@@ -1,16 +1,16 @@
 <li>
   <span class="content">
   	
-  	<% if current_user && current_user.votes.where(:answer_id => answer.id, :up => true).present? %>
-    *
+  	<% if current_user && current_user.a_votes.where(:answer_id => answer.id, :up => true).present? %>
+      *
   	<% else %>
-    <%= link_to "+", votes_path(:vote => {:answer_id => answer.id, :up => true}), :method => :post %>
+      <%= link_to "+", a_votes_path(:a_vote => {:answer_id => answer.id, :up => true}), :method => :post %>
   	<% end %>
 
-  	<% if current_user && current_user.votes.where(:answer_id => answer.id, :up => false).present? %>
-    *
+  	<% if current_user && current_user.a_votes.where(:answer_id => answer.id, :up => false).present? %>
+      *
   	<% else %>
-    <%= link_to "-", votes_path(:vote => {:answer_id => answer.id, :up => false}), :method => :post %>
+      <%= link_to "-", a_votes_path(:a_vote => {:answer_id => answer.id, :up => false}), :method => :post %>
   	<% end %>
 
 
@@ -27,7 +27,7 @@
     <% end %>
   </section> 
   <span>
-  	Votes: <%= answer.votes.where(:up => true).count - answer.votes.where(:up => false).count %>
+  	Votes: <%= answer.a_votes.where(:up => true).count - answer.a_votes.where(:up => false).count %>
   </span>
 
   <% if current_user?(answer.user) %>

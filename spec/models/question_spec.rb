@@ -12,7 +12,6 @@
 #  course_id     :integer
 #  user_id       :integer
 #  answer_status :boolean
-#  answered      :string(255)
 #
 
 require 'spec_helper'
