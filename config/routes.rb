@@ -9,7 +9,14 @@ SchoolQuestions::Application.routes.draw do
   resources :schools do
     resources :courses 
   end
-  resources :questions
+  
+  resources :questions do
+    member do 
+      # we use put because these are update actions
+      put :accept_answer
+      put :clear_accepted_answer
+    end
+  end
 
   root to: 'schools#index'
 

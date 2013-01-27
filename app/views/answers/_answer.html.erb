@@ -36,5 +36,22 @@
                                      title: answer.content %>
   <% end %>
 
+    <% if current_user?(answer.question.user) %>
+    <% if answer.accepted?  %>
+      <%= link_to "unselect answer", 
+                  clear_accepted_answer_question_path( answer.question ),
+                  method: :put
+                  %>
+    <% else %>
+      <%= link_to "select as answer", 
+                  accept_answer_question_path( 
+                    answer.question, 
+                    answer_id: answer.id 
+                  ), 
+                  method: :put
+                  %>
+    <% end %>
+  <% end %>
+
 
 </li>

@@ -60,12 +60,37 @@ class QuestionsController < ApplicationController
       flash[:success] = "Question updated."
       redirect_to question_path(@question)
     else
+      redirect_to question_path(@question)
       render 'edit'
     end
   end
 
   def destroy
   end
+
+  def accept_answer
+    @question = Question.find( params[:id] )
+    if @question.update_attributes( accepted_answer_id: params[:answer_id] )
+      # ...render the js that updates your view (for example, 
+      # find and replace calling link with an "unselect" one )
+      flash[:success] = "Answer selected."
+      redirect_to question_path(@question)
+    else
+      # .. an error has occurred, render an "unprocessable entity" status
+      flash[:notice] = "No answer selected."
+      redirect_to question_path(@question)
+    end
+  end
+
+  def clear_accepted_answer
+    @question = Question.find( params[:id] )
+    if @question.update_attributes( accepted_answer_id: nil )
+      flash[:notice] = "Answer cleared."
+      redirect_to question_path(@question)
+    else
+      redirect_to question_path(@question)
+    end
+  end  
 
   private
 

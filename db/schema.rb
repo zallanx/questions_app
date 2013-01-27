@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122005342) do
+ActiveRecord::Schema.define(:version => 20130127193302) do
 
   create_table "a_votes", :force => true do |t|
     t.integer  "user_id"
@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(:version => 20130122005342) do
     t.integer  "question_id"
     t.integer  "user_id"
     t.text     "content"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "accepted_answer_id"
   end
 
   create_table "courses", :force => true do |t|
@@ -66,17 +67,40 @@ ActiveRecord::Schema.define(:version => 20130122005342) do
     t.text     "content"
     t.integer  "type"
     t.integer  "points"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "course_id"
     t.integer  "user_id"
     t.boolean  "answer_status"
+    t.integer  "accepted_answer_id"
+  end
+
+  create_table "rich_rich_files", :force => true do |t|
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.string   "rich_file_file_name"
+    t.string   "rich_file_content_type"
+    t.integer  "rich_file_file_size"
+    t.datetime "rich_file_updated_at"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.text     "uri_cache"
+    t.string   "simplified_type",        :default => "file"
   end
 
   create_table "schools", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "selections", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.boolean  "up"
+    t.integer  "answer_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
