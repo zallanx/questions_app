@@ -1,40 +1,54 @@
 <li>
   <span class="content">
-  	
-  	<% if current_user && current_user.a_votes.where(:answer_id => answer.id, :up => true).present? %>
-      *
-  	<% else %>
-      <%= link_to "+", a_votes_path(:a_vote => {:answer_id => answer.id, :up => true}), :method => :post %>
-  	<% end %>
+    <div class="answer-main">
 
-  	<% if current_user && current_user.a_votes.where(:answer_id => answer.id, :up => false).present? %>
-      *
-  	<% else %>
-      <%= link_to "-", a_votes_path(:a_vote => {:answer_id => answer.id, :up => false}), :method => :post %>
-  	<% end %>
+  	 <div class="answer-avatar">
+    	<% if current_user && current_user.a_votes.where(:answer_id => answer.id, :up => true).present? %>
+        <%= image_tag(("upv1.png"), :class => "ava-image") %>
+    	<% else %>
+        <%= link_to image_tag(("upv1.png"), 
+                               :mouseover => "upv2.png", 
+                               :class => "ava-image"), 
+                    a_votes_path(:a_vote => {:answer_id => answer.id, :up => true}), 
+                                 :method => :post %>
+    	<% end %>
+
+      <h3><%= answer.a_votes.where(:up => true).count - answer.a_votes.where(:up => false).count %></h3>
+      <div class="vote-font">
+        votes
+      </div>
+
+    	<% if current_user && current_user.a_votes.where(:answer_id => answer.id, :up => false).present? %>
+        <%= image_tag(("dv1.png"), :class => "ava-image") %>
+    	<% else %>
+        <%= link_to image_tag(("dv1.png"), 
+                               :mouseover => "dv2.png", 
+                               :class => "ava-image"), 
+                    a_votes_path(:a_vote => {:answer_id => answer.id, :up => false}), 
+                                 :method => :post %>
+    	<% end %>
+     </div>
+
+    <div class="answer-element">
+      <%= wrap(answer.content) %>
+      <span class="timestamp">
+        <br><%= link_to answer.user.username, answer.user %> <%= time_ago_in_words(answer.created_at) %> ago.</br>
+      </span>
+      <section>
+        <% if answer.user.id == current_user.id %>
+          <%= link_to "Edit your answer" %>
+        <% end %>
+      </section> 
+    </div>
 
 
-
-    <%= answer.content %>
-
-  </span>
-  <span class="timestamp">
-    <p>Answered by <%= link_to answer.user.username, answer.user %> <%= time_ago_in_words(answer.created_at) %> ago.</p> 
-  </span>
-  <section>
-    <% if answer.user.id == current_user.id %>
-      <%= link_to "Edit your answer" %>
-    <% end %>
-  </section> 
-  <span>
-  	Votes: <%= answer.a_votes.where(:up => true).count - answer.a_votes.where(:up => false).count %>
-  </span>
 
   <% if current_user?(answer.user) %>
     <%= link_to "delete", answer, method: :delete,
                                      data: { confirm: "Are you sure?" },
                                      title: answer.content %>
   <% end %>
+
 
     <% if current_user?(answer.question.user) %>
     <% if answer.accepted?  %>
@@ -52,6 +66,7 @@
                   %>
     <% end %>
   <% end %>
+</div>
 
-
+</span>
 </li>

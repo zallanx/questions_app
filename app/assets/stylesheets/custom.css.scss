@@ -51,18 +51,45 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   margin-bottom: 30px;
+  margin-top: 20px;
   //text-align: center;
 }
 
 h2 {
-  //font-size: 1.7em;
+  font-size: 1.8em;
   //letter-spacing: -1px;
   //margin-bottom: 30px;
   text-align: center;
   font-weight: strong;
   //color: $grayLight;
+}
+
+h3 {
+  font-size: 1.6em;
+  //letter-spacing: -1px;
+  //margin-bottom: 30px;
+  text-align: center;
+  font-weight: 400;
+  //color: $grayLight;
+}
+
+h4 {
+  font-size: 1.3em;
+  //letter-spacing: -1px;
+  //margin-bottom: 30px;
+  text-align: center;
+  font-weight: 400;
+  color: #006699;
+}
+
+h6 {
+  font-size: 12px;
+  text-align: center;
+  font-weight: 200;
+  color: #006699;
+
 }
 
 p {
@@ -469,9 +496,7 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 .content {
   display: block;
 }
-.timestamp {
-  color: $grayLight;
-}
+
 .gravatar {
   float: left;
   margin-right: 10px;
@@ -492,4 +517,102 @@ aside {
   padding-bottom: 40px;
   color: $grayLight;
   font-size: 12px;
+}
+
+/* Listing questions */
+
+.question-main {
+  overflow:hidden;
+}
+
+
+.numanswer{
+    display: block;
+    font-size: 24px;
+    line-height: 32px;
+    padding: 0px 15px; //how wide the box is
+    float:left;
+
+    text-align: center;
+    border-radius: 5px 5px 5px 5px;
+    background-color: rgb(229, 246, 255);
+
+}
+
+.noanswer{
+    display: block;
+    font-size: 24px;
+    line-height: 32px;
+    padding: 0px 15px; //how wide the box is
+    float:left;
+
+    text-align: center;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #eee;
+
+    h4{
+      color: #555;
+    }
+    h6{
+      color: #555;
+    }
+
+}
+
+.question-element {
+    float:left;
+    margin-left:20px;
+    margin-top:-5px;
+    line-height: 14px;
+    .timestamp {
+      color: grey;
+      font-size: 0.9em;
+      line-height: 0.2em;
+    }
+}
+
+/* Listing answers */
+
+.answer-main{
+  overflow: hidden;
+}
+
+.answer-avatar {
+   float:left;
+   //margin-right: 10px;
+   //padding-right: 0px;
+   //padding-top: -15px;
+   //padding-bottom: 5px;
+   .ava-image {
+    width:22px;
+    height:16px;   
+    //padding-top: 10px;
+   }
+   .content {
+    margin-top:10px;
+    margin-bottom:-8px;
+    margin-left:0px; //how far right or left the number is
+   }
+   .vote-font{
+    margin-top:-10px;
+    margin-bottom: 6px;
+    //margin-left: 4px;
+    color: $grayLight;
+    font-size: 0.9em;
+   }
+   h3 {
+
+   }
+}
+
+.answer-element {
+    float:left;
+    margin-left:20px;
+    margin-top:15px;
+;
+    .timestamp {
+      color: grey;
+      font-size: 0.9em;
+      line-height: 0.2em;
+    }
 }

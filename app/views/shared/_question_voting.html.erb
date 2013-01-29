@@ -1,0 +1,11 @@
+  	<% if current_user && current_user.votes.where(:question_id => question.id, :up => true).present? %>
+    *
+  	<% else %>
+    <%= link_to "+", votes_path(:vote => {:question_id => question.id, :up => true}), :method => :post %>
+  	<% end %>
+
+  	<% if current_user && current_user.votes.where(:question_id => question.id, :up => false).present? %>
+    *
+  	<% else %>
+    <%= link_to "-", votes_path(:vote => {:question_id => question.id, :up => false}), :method => :post %>
+  	<% end %>

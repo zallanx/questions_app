@@ -1,33 +1,36 @@
 <li>
   <span class="content">
   	
-  	<% if current_user && current_user.votes.where(:question_id => question.id, :up => true).present? %>
-    *
-  	<% else %>
-    <%= link_to "+", votes_path(:vote => {:question_id => question.id, :up => true}), :method => :post %>
-  	<% end %>
+  <div class="question-main">
 
-  	<% if current_user && current_user.votes.where(:question_id => question.id, :up => false).present? %>
-    *
-  	<% else %>
-    <%= link_to "-", votes_path(:vote => {:question_id => question.id, :up => false}), :method => :post %>
-  	<% end %>
+   <% #please refactor this with conditional css %>
+   <% if  question.answers.count > 0 %>
+    <div class="numanswer">
+        <h4><%= question.answers.count%></h4>
+        <h6>answers</h6>
+    </div>
+   <% else %>
+    <div class="noanswer">
+        <h4><%= question.answers.count%></h4>
+        <h6>answers</h6>
+    </div>
+   <% end %>
 
 
 
-    <%= link_to question.title, question_path(question) %>
-  </span>
-  <span class="timestamp">
-    <p>Question asked by <%= link_to question.user.username, question.user %> <%= time_ago_in_words(question.created_at) %> ago.</p> <!-- should be number of questions, number of views -->
-  </span>
-  <span>
-  	Votes: <%= question.votes.where(:up => true).count - question.votes.where(:up => false).count %>
-  </span>
-  <span>
-    Views: <%= question.impressionist_count %>
-  </span>
-  <span>
-    Answers: <%= question.answers.count %>
+    <div class="question-element">
+      <h3><%= link_to question.title, question_path(question)%></h3>
+
+        <span class="timestamp">
+          <br><%= link_to question.user.username, question.user %> • 
+            <%= time_ago_in_words(question.created_at) %> ago • 
+            <%= question.impressionist_count %> views
+          </br> <!-- should be number of questions, number of views -->
+        </span>
+    </div>
+  </div>
+
+
   </span>
 
 </li>

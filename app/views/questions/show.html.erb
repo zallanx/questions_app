@@ -4,20 +4,26 @@
 
 	<h1><%= @question.title %></h1>
 	<p>Views: <%= @view_count %></p>
-	<p><%= @question.content %></p>
+	
 
-	<section>
-		<% if(@user == current_user) %>
-			<%= link_to "Edit your question", edit_question_path(@question) %>
-		<% end %>
-	</section>
+	<div class="question-main">
+
+		<%= @question.content %>
+
+		<section>
+			<% if(@user == current_user) %>
+				<%= link_to "Edit your question", edit_question_path(@question) %>
+			<% end %>
+		</section>
 
 
-	<section>question writer is <%= @user.username %></section>
-	<section>current_user is <%= current_user.username %></section>
+		<section>question writer is <%= @user.username %></section>
+		<section>current_user is <%= current_user.username %></section>
 
-	<section><%= @list_of_users %></section>
-	<section><%= @do_not_show_form %></section>
+		<section><%= @list_of_users %></section>
+		<section><%= @do_not_show_form %></section>
+
+  	 </div>
 
 	<ol class="microposts">
 		<%= render @answers %>

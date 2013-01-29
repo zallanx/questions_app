@@ -1,6 +1,6 @@
 <li>
   <span class="content">
-    <%= course.heading %>
+    <%= link_to course.heading, school_course_path(@school, course) %>
   </span>
   <span class="timestamp">
     <p>Course made <%= time_ago_in_words(course.created_at) %> ago.</p> <!-- should be number of questions, number of views -->
