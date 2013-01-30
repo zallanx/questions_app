@@ -6,7 +6,7 @@
    <% #please refactor this with conditional css %>
    <% if  question.answers.count > 0 %>
     <div class="numanswer">
-        <h4><%= question.answers.count%></h4>
+        <h4><%= question.answers.count %></h4>
         <h6>answers</h6>
     </div>
    <% else %>
@@ -24,7 +24,7 @@
         <span class="timestamp">
           <br><%= link_to question.user.username, question.user %> • 
             <%= time_ago_in_words(question.created_at) %> ago • 
-            <%= question.impressionist_count %> views
+            <%= pluralize(question.impressionist_count, "view") %>
           </br> <!-- should be number of questions, number of views -->
         </span>
     </div>

@@ -70,7 +70,6 @@ h3 {
   font-size: 1.6em;
   //letter-spacing: -1px;
   //margin-bottom: 30px;
-  text-align: center;
   font-weight: 400;
   //color: $grayLight;
 }
@@ -94,7 +93,7 @@ h6 {
 
 p {
   font-size: 1.1em;
-  line-height: 1.7em;
+  line-height: 1.4em;
 }
 
 
@@ -525,42 +524,41 @@ aside {
   overflow:hidden;
 }
 
+  //Answer block element
+  .numanswer{
+      display: block;
+      font-size: 24px;
+      line-height: 32px;
+      padding: 0px 15px; //how wide the box is
+      float:left;
+      text-align: center;
+      border-radius: 5px 5px 5px 5px;
+      background-color: rgb(229, 246, 255);
+  }
 
-.numanswer{
-    display: block;
-    font-size: 24px;
-    line-height: 32px;
-    padding: 0px 15px; //how wide the box is
-    float:left;
+  .noanswer{
+      display: block;
+      font-size: 24px;
+      line-height: 32px;
+      padding: 0px 15px; //how wide the box is
+      float:left;
+      text-align: center;
+      border-radius: 5px 5px 5px 5px;
+      background-color: #eee;
 
-    text-align: center;
-    border-radius: 5px 5px 5px 5px;
-    background-color: rgb(229, 246, 255);
+      h4{
+        color: #555;
+      }
+      h6{
+        color: #555;
+      }
 
-}
-
-.noanswer{
-    display: block;
-    font-size: 24px;
-    line-height: 32px;
-    padding: 0px 15px; //how wide the box is
-    float:left;
-
-    text-align: center;
-    border-radius: 5px 5px 5px 5px;
-    background-color: #eee;
-
-    h4{
-      color: #555;
-    }
-    h6{
-      color: #555;
-    }
-
-}
+  }
+  //////////////////////////
 
 .question-element {
     float:left;
+    text-align: left;
     margin-left:20px;
     margin-top:-5px;
     line-height: 14px;
@@ -571,48 +569,38 @@ aside {
     }
 }
 
-/* Listing answers */
+/************************ Listing answers */
 
 .answer-main{
-  overflow: hidden;
+
 }
 
-.answer-avatar {
-   float:left;
-   //margin-right: 10px;
-   //padding-right: 0px;
-   //padding-top: -15px;
-   //padding-bottom: 5px;
-   .ava-image {
-    width:22px;
-    height:16px;   
-    //padding-top: 10px;
-   }
-   .content {
-    margin-top:10px;
-    margin-bottom:-8px;
-    margin-left:0px; //how far right or left the number is
-   }
-   .vote-font{
+.answer-vote{
+  float: left;
+  margin-right: 10px;
+  .vote{
+    width: 22px;
+    height: 16px;
+  }
+  .vote-font{
     margin-top:-10px;
     margin-bottom: 6px;
-    //margin-left: 4px;
     color: $grayLight;
     font-size: 0.9em;
-   }
-   h3 {
-
-   }
+  }
 }
 
 .answer-element {
-    float:left;
-    margin-left:20px;
-    margin-top:15px;
-;
-    .timestamp {
-      color: grey;
-      font-size: 0.9em;
-      line-height: 0.2em;
-    }
+  overflow:hidden;
+  text-align: left;
+  margin-left:20px;
+  margin-top:-5px;
+  line-height: 14px;
+  .timestamp {
+    color: grey;
+    font-size: 0.9em;
+    line-height: 0.2em;
+  }
 }
+
+

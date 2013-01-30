@@ -2,71 +2,56 @@
   <span class="content">
     <div class="answer-main">
 
-  	 <div class="answer-avatar">
-    	<% if current_user && current_user.a_votes.where(:answer_id => answer.id, :up => true).present? %>
-        <%= image_tag(("upv1.png"), :class => "ava-image") %>
-    	<% else %>
-        <%= link_to image_tag(("upv1.png"), 
-                               :mouseover => "upv2.png", 
-                               :class => "ava-image"), 
-                    a_votes_path(:a_vote => {:answer_id => answer.id, :up => true}), 
-                                 :method => :post %>
-    	<% end %>
+  	 <div class="answer-vote">
+      <div class="vote">
+      	<% if current_user && current_user.a_votes.where(:answer_id => answer.id, :up => true).present? %>
+          <%= image_tag(("upv1.png"), :class => "ava-image") %>
+      	<% else %>
+          <%= link_to image_tag(("upv1.png"), 
+                                 :mouseover => "upv2.png", 
+                                 :class => "ava-image"), 
+                      a_votes_path(:a_vote => {:answer_id => answer.id, :up => true}), 
+                                   :method => :post %>
+      	<% end %>
+      </div>
 
       <h3><%= answer.a_votes.where(:up => true).count - answer.a_votes.where(:up => false).count %></h3>
       <div class="vote-font">
         votes
       </div>
-
-    	<% if current_user && current_user.a_votes.where(:answer_id => answer.id, :up => false).present? %>
-        <%= image_tag(("dv1.png"), :class => "ava-image") %>
-    	<% else %>
-        <%= link_to image_tag(("dv1.png"), 
-                               :mouseover => "dv2.png", 
-                               :class => "ava-image"), 
-                    a_votes_path(:a_vote => {:answer_id => answer.id, :up => false}), 
-                                 :method => :post %>
-    	<% end %>
+      <div class="vote">
+      	<% if current_user && current_user.a_votes.where(:answer_id => answer.id, :up => false).present? %>
+          <%= image_tag(("dv1.png"), :class => "ava-image") %>
+      	<% else %>
+          <%= link_to image_tag(("dv1.png"), 
+                                 :mouseover => "dv2.png", 
+                                 :class => "ava-image"), 
+                      a_votes_path(:a_vote => {:answer_id => answer.id, :up => false}), 
+                                   :method => :post %>
+      	<% end %>
+      </div>
      </div>
 
-    <div class="answer-element">
-      <%= wrap(answer.content) %>
-      <span class="timestamp">
-        <br><%= link_to answer.user.username, answer.user %> <%= time_ago_in_words(answer.created_at) %> ago.</br>
-      </span>
-      <section>
-        <% if answer.user.id == current_user.id %>
-          <%= link_to "Edit your answer" %>
-        <% end %>
-      </section> 
+
+      <div class="answer-element">
+        <p><%= answer.content.html_safe %></p>
+        <span class="timestamp">
+          <br><%= link_to answer.user.username, answer.user %> • 
+              <%= time_ago_in_words(answer.created_at) %> ago • 
+              <% if answer.user.id == current_user.id %>
+                <%= link_to "edit" %>  
+              <% end %>
+              <% if current_user?(answer.user) %>
+                <%= link_to "delete", answer, method: :delete,
+                                       data: { confirm: "Are you sure?" },
+                                       title: answer.content %>
+              <% end %>
+          </br>
+        </span>
+      </div>
     </div>
 
 
-
-  <% if current_user?(answer.user) %>
-    <%= link_to "delete", answer, method: :delete,
-                                     data: { confirm: "Are you sure?" },
-                                     title: answer.content %>
-  <% end %>
-
-
-    <% if current_user?(answer.question.user) %>
-    <% if answer.accepted?  %>
-      <%= link_to "unselect answer", 
-                  clear_accepted_answer_question_path( answer.question ),
-                  method: :put
-                  %>
-    <% else %>
-      <%= link_to "select as answer", 
-                  accept_answer_question_path( 
-                    answer.question, 
-                    answer_id: answer.id 
-                  ), 
-                  method: :put
-                  %>
-    <% end %>
-  <% end %>
-</div>
 
 </span>
 </li>

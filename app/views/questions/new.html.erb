@@ -10,13 +10,9 @@
 	      <%= f.text_field :title %>
 
 	      <%= f.label :content, "Question content" %>
-	      <%= f.text_area :content %>
+	      <%= f.text_area :content, class: "wysihtml5" %>
 
 	      <%= f.hidden_field :course_id, :value => @course.id %>
-
-
-
-	      <p><h1> </h1></p>
 
 	      <%= f.submit "Create question", class: "btn btn-large btn-primary" %>
 	    <% end %>

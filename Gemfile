@@ -8,6 +8,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'wmd-rails'
 gem 'impressionist'
+gem 'bootstrap-wysihtml5-rails'
 
 
 group :development, :test do
