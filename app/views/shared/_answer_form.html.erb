@@ -2,7 +2,7 @@
 	<%= render 'shared/error_messages', object: f.object %>
 	
 	<div class="field">
-		<%= f.text_area :content, placeholder: "Post your answer..." %>
+		<%= f.text_area :content, placeholder: "Post your answer...", class: "wysihtml5"  %>
 
 		<%= f.hidden_field :question_id, :value => @question.id %>
 	</div>

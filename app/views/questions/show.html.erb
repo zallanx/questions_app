@@ -1,39 +1,30 @@
 <% provide(:title, @question.title) %>
 
 <div class="container">
+	<div class="span8">
+		<span id="question-fonts">
 
-	<h1><%= @question.title %></h1>
-	<p>Views: <%= @view_count %></p>
-	
+			<h2><br>Q: <%= @question.title %></br></h2>
+			<!-- p Views: <%= @view_count %> -->
 
-	<div class="question-main">
+			<p><%= @question.content.html_safe %></p>
+			<br></br>
+			<section>
+				<% if(@user == current_user) %>
+					<%= link_to "Edit your question", edit_question_path(@question) %>
+				<% end %>
+			</section>
 
-		<%= @question.content.html_safe %>
+		  	<p><h4><%= pluralize(@answers.count, "answer") %></h4></p> 
+			<ol class="microposts">
+				<%= render @answers %>
+			</ol>
 
-		<section>
-			<% if(@user == current_user) %>
-				<%= link_to "Edit your question", edit_question_path(@question) %>
-			<% end %>
-		</section>
-
-
-		<section>question writer is <%= @user.username %></section>
-		<section>current_user is <%= current_user.username %></section>
-
-		<section><%= @list_of_users %></section>
-		<section><%= @do_not_show_form %></section>
-
-  	 </div>
-
-	<ol class="microposts">
-		<%= render @answers %>
-	</ol>
-
-	<section>
-		<% if(@question.user != current_user) and (@do_not_show_form == false) %>
-			<%= render 'shared/answer_form' %>
-		<% end %>
-	</section>
-
-
+			<section>
+				<% if(@question.user != current_user) and (@do_not_show_form == false) %>
+					<%= render 'shared/answer_form' %>
+				<% end %>
+			</section>
+		</span>	
+	</div>
 </div>

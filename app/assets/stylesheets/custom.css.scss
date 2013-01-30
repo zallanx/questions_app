@@ -61,7 +61,7 @@ h2 {
   font-size: 1.8em;
   //letter-spacing: -1px;
   //margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
   font-weight: strong;
   //color: $grayLight;
 }
@@ -569,32 +569,44 @@ aside {
     }
 }
 
+/************************ question view page */
+
+#question-fonts{
+  h2 {
+    text-align:left;
+  }
+  h4 {
+    text-align:left;
+  }
+}
+
+
+
 /************************ Listing answers */
 
 .answer-main{
-
+  
 }
 
 .answer-vote{
   float: left;
-  margin-right: 10px;
+  margin-left: -28px; //probably not the best way to indent, but...
+
   .vote{
-    width: 22px;
-    height: 16px;
+    width: 15px;
+    height: 10px;
+    padding-bottom: 2px;
   }
-  .vote-font{
-    margin-top:-10px;
-    margin-bottom: 6px;
-    color: $grayLight;
-    font-size: 0.9em;
-  }
+
 }
 
 .answer-element {
   overflow:hidden;
   text-align: left;
-  margin-left:20px;
-  margin-top:-5px;
+  padding-left: 0px;
+  margin-left:0px;
+  margin-top:2px;
+  margin-bottom:2px;
   line-height: 14px;
   .timestamp {
     color: grey;
