@@ -40,6 +40,29 @@
                                        data: { confirm: "Are you sure?" },
                                        title: answer.content %>
               <% end %>
+              <span class="select">
+                <% if current_user?(answer.question.user) %>
+                  <% if answer.accepted?  %>
+                    <%= link_to "☑", 
+                                clear_accepted_answer_question_path( answer.question ),
+                                method: :put
+                                %>
+                  <% else %>
+                    <%= link_to "☐", 
+                                accept_answer_question_path( 
+                                  answer.question, 
+                                  answer_id: answer.id 
+                                ), 
+                                method: :put
+                                %>
+                <% end %>
+              <% else %>
+                <% if answer.accepted?  %>
+                  ☑
+                <% end %>
+              <% end %>
+
+              </span>
           </br>
         </span>
       </div>

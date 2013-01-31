@@ -1,8 +1,8 @@
 <div class="container">
+  <div class="span8">
+	<br><h2>Edit your question</h2></br>
 
-	<h2><center>Edit your question</center></h2>
-	<div class="row">
-	  <div class="span6 offset3">
+
 	    <%= form_for(@question) do |f| %>
  
 
@@ -10,13 +10,11 @@
 	      <%= f.text_field :title %>
 
 	      <%= f.label :content, "Question content" %>
-	      <%= f.text_area :content %>
+	      <%= f.text_area :content, class: "wysihtml5" %>
 
-	      <p><h1> </h1></p>
-
-	      <%= f.submit "Finish editing", class: "btn btn-large btn-primary" %>
+	      <%= f.submit "Create question", class: "btn btn-large btn-primary" %>
 	    <% end %>
-	  </div>
-	</div>
-</div>
 
+  </div>
+
+</div>

@@ -33,6 +33,8 @@ class QuestionsController < ApplicationController
     end
 
     #---------------------------------------------------------------------------------------
+
+    
   end
 
   def new
@@ -73,7 +75,7 @@ class QuestionsController < ApplicationController
     if @question.update_attributes( accepted_answer_id: params[:answer_id] )
       # ...render the js that updates your view (for example, 
       # find and replace calling link with an "unselect" one )
-      flash[:success] = "Answer selected."
+      flash[:success] = "Answer picked!"
       redirect_to question_path(@question)
     else
       # .. an error has occurred, render an "unprocessable entity" status
@@ -85,7 +87,7 @@ class QuestionsController < ApplicationController
   def clear_accepted_answer
     @question = Question.find( params[:id] )
     if @question.update_attributes( accepted_answer_id: nil )
-      flash[:notice] = "Answer cleared."
+      flash[:notice] = "Answer not good enough? Holla back."
       redirect_to question_path(@question)
     else
       redirect_to question_path(@question)

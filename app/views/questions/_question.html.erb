@@ -4,11 +4,18 @@
   <div class="question-main">
 
    <% #please refactor this with conditional css %>
-   <% if  question.answers.count > 0 %>
-    <div class="numanswer">
-        <h4><%= question.answers.count %></h4>
-        <h6>answers</h6>
-    </div>
+   <% if question.answers.count > 0 %>
+    <% if question.accepted_answer_id %>
+      <div class="pickedanswer">
+          <h4><%= question.answers.count %></h4>
+          <h6>answers</h6>
+      </div>
+    <% else %>
+      <div class="numanswer">
+          <h4><%= question.answers.count %></h4>
+          <h6>answers</h6>
+      </div>
+    <% end %>
    <% else %>
     <div class="noanswer">
         <h4><%= question.answers.count%></h4>

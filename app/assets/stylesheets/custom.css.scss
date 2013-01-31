@@ -63,6 +63,7 @@ h2 {
   //margin-bottom: 30px;
   text-align: left;
   font-weight: strong;
+  color: #555555;
   //color: $grayLight;
 }
 
@@ -490,6 +491,7 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
+    list-style: none;
   }
 }
 .content {
@@ -552,8 +554,25 @@ aside {
       h6{
         color: #555;
       }
+    }
 
-  }
+  .pickedanswer{
+      display: block;
+      font-size: 24px;
+      line-height: 32px;
+      padding: 0px 15px; //how wide the box is
+      float:left;
+      text-align: center;
+      border-radius: 5px 5px 5px 5px;
+      background-color: #006faa;
+      h4{
+        color: #e5f6ff;
+      }
+      h6{
+        color: #e5f6ff;
+      }
+    }
+
   //////////////////////////
 
 .question-element {
@@ -574,17 +593,27 @@ aside {
 #question-fonts{
   h2 {
     text-align:left;
+    color: #555555;
   }
   h4 {
     text-align:left;
+    font-weight: 500;
+    color: #004466;
+  }
+  #question-content {
+    padding-top: 5px;
+    font-size: 1.2em;
   }
 }
 
+#letter-Q{
+  margin-left: -36px;
+}
 
 
 /************************ Listing answers */
 
-.answer-main{
+.answer-main{ 
   
 }
 
@@ -608,11 +637,38 @@ aside {
   margin-top:2px;
   margin-bottom:2px;
   line-height: 14px;
+  p {
+    font-size: 1.0em;
+  }
+  ul {
+    list-style: circle; 
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-bottom: 18px;
+    padding-top: 5px;
+
+    li {
+        list-style: disc;
+        margin-left: 2em; 
+        border: 0px;
+        line-height: 5px;
+    }
+  }
   .timestamp {
     color: grey;
     font-size: 0.9em;
     line-height: 0.2em;
+      .select{
+        float: right;
+        font-size: 2.2em;
+        vertical-aligns: bottom;
+      }
   }
 }
 
+.answer-form {
+  padding-top: 10px;
+  border-top: 1px solid #e8e8e8;
+
+}
 

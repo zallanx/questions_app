@@ -4,10 +4,12 @@
 	<div class="span8">
 		<span id="question-fonts">
 
-			<h2><br>Q: <%= @question.title %></br></h2>
+			<h2><br>
+				<span id="letter-Q">Q:</span> <%= @question.title %>
+			</br></h2>
 			<!-- p Views: <%= @view_count %> -->
 
-			<p><%= @question.content.html_safe %></p>
+			<p id="question-content"><%= @question.content.html_safe %></p>
 			<br></br>
 			<section>
 				<% if(@user == current_user) %>
@@ -15,13 +17,17 @@
 				<% end %>
 			</section>
 
-		  	<p><h4><%= pluralize(@answers.count, "answer") %></h4></p> 
+			<% if(@question.answers.count > 0) %>
+		  		<p><h4><%= pluralize(@answers.count, "Answer") %></h4></p> 
+	  		<% end %>
 			<ol class="microposts">
 				<%= render @answers %>
 			</ol>
 
-			<section>
+			<section class="answer-form">
+
 				<% if(@question.user != current_user) and (@do_not_show_form == false) %>
+					<h4>Your Answer</h4>
 					<%= render 'shared/answer_form' %>
 				<% end %>
 			</section>
