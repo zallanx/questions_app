@@ -1,9 +1,34 @@
+<% @sum = 0 %> <!-- always bad to put logic in the view, but doesn't work in the school controller as it sums up EVERYTHING instead of just the course I want -->
+
 <li>
   <span class="content">
-    <%= link_to course.heading, school_course_path(@school, course) %>
-  </span>
-  <span class="timestamp">
-    <p>Course made <%= time_ago_in_words(course.created_at) %> ago.</p> <!-- should be number of questions, number of views -->
+
+  	<div class="course-main">
+  	  <div class="numquestions">
+          <h4><%= course.questions.count %></h4>
+          <h6>questions</h6>
+      </div>
+
+      <div class="numanswers">
+      	<% course.questions.each do |question| %>
+			<% @sum += question.answers.count %>
+		<% end %>
+          <h4><%= @sum %></h4>
+          <h6>&nbsp  answers  &nbsp </h6>
+      </div>
+
+      <div class="course-element">
+      	<h3><%= link_to course.heading, school_course_path(current_school, course) %> - <%= course.name %></h3>
+
+		  <span class="timestamp">
+		  	<% if course.questions.first %>
+		    <br>Last <%= link_to "question", question_path(course.questions.first) %> asked <%= time_ago_in_words(course.questions.first.created_at) %> ago.</br>
+		    <% else %>
+		    <br>Course created <%= time_ago_in_words(course.created_at) %></br>
+		    <% end %>
+		  </span>
+	  </div>
+	</div>
   </span>
 
 </li>

@@ -6,6 +6,7 @@ class SchoolsController < ApplicationController
   def show
   	@school = School.find(params[:id])
   	@courses = @school.courses.all
+    redirect_to school_courses_path(@school)
   end
 
   def new

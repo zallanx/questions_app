@@ -1,15 +1,8 @@
 <div class="container">
-	<h2><center>All courses for <%= link_to current_school.name, schools_path %></center></a></h2>
-
-
-	<ul class="users">
-		<% @courses.each do |course| %>
-			<li><%= course.heading %> - <%= link_to course.name, [current_school, course] %></li>
-		<% end %>	
-	</ul>
-
-
-	<%= link_to "Add a course", new_school_course_path %> <!-- the combined resource_nestedreosurce_path works -->
-
+		<h1><%= link_to current_school.name %></h1>
+		school courses' INDEX function
+		<br></br>
+		<ol class="microposts">
+			<%= render @courses %>
+		</ol>	
 </div>
-

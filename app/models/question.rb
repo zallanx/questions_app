@@ -28,4 +28,7 @@ class Question < ActiveRecord::Base
   belongs_to :accepted_answer, class_name: :answer, foreign_key: :accepted_answer_id
 
   default_scope order: 'questions.created_at DESC'
+
+ 
+
 end

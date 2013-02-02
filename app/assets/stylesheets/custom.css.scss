@@ -520,6 +520,68 @@ aside {
   font-size: 12px;
 }
 
+/********* Listing courses **************/
+
+.course-main {
+  overflow:hidden;
+}
+
+
+  .numquestions{
+      display: block;
+      font-size: 18px;
+      //line-height: 28px;
+      padding: 0px 10px; //how wide the box is
+      float:left;
+      text-align: center;
+      border-radius: 5px 5px 5px 5px;
+      
+      background-color: #555;
+      h4{
+        color: #eee;
+      }
+      h6{
+        color: #eee;
+      }
+    }
+
+  .numanswers{
+    margin-left: 10px;
+      display: block;
+      font-size: 18px;
+      //line-height: 28px;
+      padding: 0px 10px; //how wide the box is
+      float:left;
+      text-align: center;
+      border-radius: 5px 5px 5px 5px;
+      
+      background-color: #006faa;
+      h4{
+        color: #e5f6ff;
+      }
+      h6{
+        color: #e5f6ff;
+      }
+    }
+
+  //////////////////////////
+
+.course-element {
+    float:left;
+    text-align: left;
+    margin-left:20px;
+    margin-top:-5px;
+    line-height: 14px;
+    h3 {
+      color: #555555;
+    }
+    .timestamp {
+      color: grey;
+      font-size: 0.9em;
+      line-height: 0.2em;
+    }
+}
+
 /* Listing questions */
 
 .question-main {

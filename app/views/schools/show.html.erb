@@ -1,7 +1,8 @@
 <div class="container">
-		<h1>This is <%= link_to @school.name, @school %></h1>
-		<p>These are its <%= link_to "courses:", school_courses_path(@school) %></p>
+		<h1><%= link_to @school.name, @school %></h1>
+		school's SHOW function
+		<br></br>
 		<ol class="microposts">
 			<%= render @courses %>
-		 </ol>	
+		</ol>	
 </div>

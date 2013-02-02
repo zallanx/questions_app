@@ -20,6 +20,8 @@ class Answer < ActiveRecord::Base
 
   default_scope order: 'answers.created_at DESC'
 
+  
+
   def accepted?
   	return false if new_record? 
   	question.try( :accepted_answer_id ) == id

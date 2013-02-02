@@ -4,7 +4,7 @@
 
 	<ul class="users">
 		<% @schools.each do |school| %>
-			<li><%= link_to school.name, school_courses_path(school) %></li>
+			<li><%= link_to school.name, school %></li>
 		<% end %>	
 
 	</ul>

@@ -18,6 +18,7 @@ class QuestionsController < ApplicationController
     @answers = @question.answers.all
     @answer = current_user.answers.build
 
+
     #-- If a question has been answered by a user, the form does not show up anymore (tbr)
 
     @list_of_users = [] unless @list_of_users
