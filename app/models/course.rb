@@ -11,16 +11,16 @@
 #
 
 class Course < ActiveRecord::Base
-  attr_accessible :heading, :name #, :school_id
+  attr_accessible :heading, :name 
   belongs_to :school
-  has_many :questions #, :counter_cache => true
+  has_many :questions, :counter_cache => true
   
-  scope :by_question_count, lambda { where("question_count >= ?", 1) }
+ 
 
   def question_count
   	self.questions.count 
   end
 
-  # scope :by_question_count => "questions_count DESC"
+ 
 
 end
