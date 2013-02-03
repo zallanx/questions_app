@@ -2,12 +2,13 @@
 #
 # Table name: courses
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  heading    :string(255)
-#  school_id  :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  heading         :string(255)
+#  school_id       :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  questions_count :integer          default(0)
 #
 
 require 'spec_helper'

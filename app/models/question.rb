@@ -20,7 +20,7 @@ class Question < ActiveRecord::Base
 
   is_impressionable #to get view counts
   
-  belongs_to :course
+  belongs_to :course, :counter_cache => true
   belongs_to :user
   has_many :votes
   

@@ -1,13 +1,15 @@
 class CoursesController < ApplicationController #needs an EXAM DATE
   def index
-  	@courses = current_school.courses.all
-    # @courses = current_school.courses.by_answer_count
+  	# @courses = current_school.courses.all
+    @courses = current_school.courses.by_questions_count    # find(:all, :order => "questions_count DESC")
+
+
   end
 
   def show #not using!
   	@course = Course.find(params[:id])
   	@questions = @course.questions.all #change to sections if needed
-
+    redirect_to school_courses(current_school)
   end
 
   def new
