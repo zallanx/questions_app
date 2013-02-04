@@ -15,7 +15,7 @@ class Answer < ActiveRecord::Base
   attr_accessible :content, :question_id, :user_id, :accepted_answer_id
 
   belongs_to :user
-  belongs_to :question, inverse_of: :answers
+  belongs_to :question, inverse_of: :answers, :counter_cache => true
   has_many :a_votes #change to :votes
 
   default_scope order: 'answers.created_at DESC'
