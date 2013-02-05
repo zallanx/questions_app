@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 
   impressionist :actions=>[:show] #view counter
 
-  before_filter :signed_in_user, only: [:new, :edit, :create, :edit, :update, :destroy]
+  before_filter :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
 
