@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController #needs an EXAM DATE
   def index #showing all courses
   	# @courses = current_school.courses.all
-    @courses = current_school.courses.most_answered
+    @courses = current_school.courses.all
 
 
   end
