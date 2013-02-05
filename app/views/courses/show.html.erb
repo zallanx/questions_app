@@ -2,6 +2,7 @@
 
 		<h1><%= link_to @course.heading, school_path(current_school) %> - <%= @course.name %></h1>
 		<p><%= pluralize(@questions.count, 'question' ) %> asked</p>
+		<p><%= link_to "Sort by most active", school_course_path(current_school, @course, order: 'most_active') %></p>
 
 		<p><%= link_to "Ask a new question", new_question_path(:course => @course.id) %>	
 		in <%= @course.name %></p>

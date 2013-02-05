@@ -8,7 +8,12 @@ class CoursesController < ApplicationController #needs an EXAM DATE
 
   def show #showing a course's questions
   	@course = Course.find(params[:id])
-  	@questions = @course.questions.all #change to sections if needed
+    if params[:order]
+      sorting_order = params[:order]
+  	 @questions = @course.questions.send(sorting_order) #you CAN use scope methods in the child model!
+    else
+      @questions = @course.questions.by_creation_time #default
+    end
   end
 
   def new

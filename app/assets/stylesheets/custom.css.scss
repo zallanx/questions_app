@@ -734,3 +734,17 @@ aside {
 
 }
 
+.school-shield{
+  .element{
+    display: block;
+      //font-size: 18px;
+      //line-height: 28px;
+      padding: 20px 20px 20px 20px; //how wide the box is
+      float:left;
+      text-align: center;
+      border-radius: 5px 5px 5px 5px;
+      margin-right: 10px;
+      background-color: grey;
+  }
+}
+

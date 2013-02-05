@@ -28,7 +28,9 @@ class Question < ActiveRecord::Base
   has_many :answers, inverse_of: :question
   belongs_to :accepted_answer, class_name: :answer, foreign_key: :accepted_answer_id
 
-  default_scope order: 'questions.created_at DESC'
+  scope :by_creation_time, order: 'questions.created_at DESC'
+
+  scope :most_active, order: "answers_count DESC, questions.created_at DESC" 
 
  
 
