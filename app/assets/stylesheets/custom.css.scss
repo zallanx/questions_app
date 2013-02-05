@@ -734,17 +734,40 @@ aside {
 
 }
 
+.school-listings {
+  list-style: none;
+  margin: 10px 0 0 0;
+  display: inline;
+
+  li {
+    padding: 10px 0;
+    border-top: 0px solid #e8e8e8;
+    list-style: none;
+  }
+  li.extra-padding {
+    padding: 46px 0;
+  }
+
+
+
+}
+
 .school-shield{
+  overflow: hidden;
+    h3 {
+    font-weight: 500;
+   } 
   .element{
+
     display: block;
-      //font-size: 18px;
-      //line-height: 28px;
-      padding: 20px 20px 20px 20px; //how wide the box is
+      width: 75px;
+      height: 75px;
+      //padding: 20px 20px 20px 20px; //how wide the box is
       float:left;
       text-align: center;
       border-radius: 5px 5px 5px 5px;
-      margin-right: 10px;
-      background-color: grey;
+      margin-right: 20px;
+      //background-color: grey;
   }
 }
 

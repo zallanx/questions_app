@@ -1,19 +1,40 @@
 <div class="container">
-	<h1><center>All schools</center></a></h1>
+	
+	<h1><%= link_to "Find your school", "#" %></h1>
+	<ol class="microposts">
+		<li>
+			<div class="school-shield">
+				<div class="element">
+				<%= image_tag("http://i1358.photobucket.com/albums/q770/school-questions/Pennnew2_zps39deaf9f.png") %>
+
+			</div>
+			<h3><%= link_to "University of Pennsylvania", school_path(1) %></h3>
+		</li>
+
+		<li>
+			<div class="school-shield">
+				<div class="element">
+				<%= image_tag("http://i1358.photobucket.com/albums/q770/school-questions/1000px-Cornell_Sealsvg_zpsfb179fc8.png") %>
+
+			</div>
+			<h3><%= link_to "Cornell", school_path(2) %></h3>
+		</li>
+
+	    <li class="extra-padding">
+			<div class="school-shield">
+				<div class="element">
+				<%= image_tag("http://i1358.photobucket.com/albums/q770/school-questions/1000px-ColumbiaNYUCoatsvg_zpsfd2a03ed.png") %>
+
+			</div>
+			<h3><%= "Coming soon" %></h3>
+		</li>
+
+	</ol>
 
 
-	<ul class="users">
-		<% @schools.each do |school| %>
-			<li><%= link_to school.name, school %></li>
-		<% end %>	
 
-	</ul>
-	<div class="school-shield">
-		<div class="element"> hi </div>
-
-		<div class="element"> hi </div>
+		
 	</div>
 
-	Don't see your school here?  <%= link_to "Add your school", new_school_path %>
 
 </div>
