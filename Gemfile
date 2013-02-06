@@ -17,6 +17,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'taps', :require => false
   gem 'annotate', '2.5.0'
 end
 
