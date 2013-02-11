@@ -60,11 +60,11 @@ h1 {
 }
 
 h2 {
-  font-size: 1.8em;
+  font-size: 2.2em;
   //letter-spacing: -1px;
   //margin-bottom: 30px;
   text-align: left;
-  font-weight: strong;
+  font-weight: 200;
   color: #555555;
   //color: $grayLight;
 }
@@ -677,7 +677,7 @@ aside {
 }
 
 #letter-Q{
-  margin-left: -36px;
+  margin-left: -42px;
 }
 
 
@@ -790,5 +790,84 @@ aside {
   }
 }
 
+.school-list {
+  list-style: none;
+  margin: 10px 0 0 0;
 
+  li {
+    padding: 5px 0;
+    border-top: 1px solid #e8e8e8;
+    list-style: none;
+  }
+}
+
+.course-list {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 13px 0;
+    border-top: 1px solid #e8e8e8;
+    list-style: none;
+  }
+}
+
+.sort-nav {
+  padding-bottom: 20px;
+
+  ul {
+    margin-left: 0px;
+  }
+
+
+  h4 {
+    font-size: 1.2em;
+    font-weight: 300;
+    letter-spacing: 0px;
+  }
+
+  li {
+     background: rgb(229, 246, 255);
+     display: block;
+     float: left;
+     margin-right: 15px;
+      &:hover { 
+      background: #0089d1;
+    }
+  }
+
+  li.right-ask{
+     background: #006faa;
+     display: block;
+     float: right;
+     //margin-right: 15px;
+      &:hover { 
+      background: #005683;
+    }
+    a {
+    color: rgb(229, 246, 255);
+    //font-weight: 200;
+    display: block;
+    padding: 0px 14px 0px 14px;
+    text-decoration: none;
+      &:hover { 
+      color: rgb(229, 246, 255);
+
+    }
+  }
+
+  }
+
+  a {
+    color: #006faa;
+    //font-weight: 200;
+    display: block;
+    padding: 0px 14px 0px 14px;
+    text-decoration: none;
+      &:hover { 
+      color: rgb(229, 246, 255);
+
+    }
+  }
+}
 

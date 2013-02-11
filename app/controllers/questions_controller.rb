@@ -51,6 +51,7 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.create(params[:question]) #change to current_user.create
     @course = @question.course
     if @question.save
+      flash[:success] = "Question posted!"
       redirect_to school_course_path(@course.school, @course)
     else
       render 'new'
