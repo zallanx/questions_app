@@ -11,14 +11,14 @@
 
       <div class="numanswers">
       	<% course.questions.each do |question| %>
-			<% @sum += question.answers.count %>
-		<% end %>
+			   <% @sum += question.answers.count %>
+		    <% end %>
           <h4><%= @sum %></h4>
           <h6>&nbsp  answers  &nbsp </h6>
       </div>
 
       <div class="course-element">
-      	<h3><%= link_to course.heading, school_course_path(current_school, course) %> - <%= course.name %></h3>
+      	<h3><%= course.heading %> - <%= link_to course.name, school_course_path(current_school, course) %></h3>
 
 		  <span class="timestamp">
 		  	<% if course.questions.first %>

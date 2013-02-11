@@ -1,45 +1,20 @@
 <div class="container">
-	<div class="main-heading">
-		<h1>Let's get started.</h1>
-	
-	<p><h3>To begin, find your current school:</h3></p>
+	<div class="span8">
+		<div class="main-heading">
+			<br></br>
+		
+		<p><h1>Welcome!</h1></p>
+		<p><h3>To get started, select the school you currently attend:</h3></p>
+		</div>
+
+
+
+		<ol class="microposts">
+			<% @schools.each do |school| %>
+			<li><h5><%= link_to school.name, school %></h5></li>
+			<% end %>
+			<li><h5><%= "Columbia - coming soon" %></h5></li>
+		</ol>
 	</div>
-
-	<br></br><!-- Amateur?  You bet. -->
-	<br></br>
-	<br></br>
-	<br></br>
-	<br></br>
-
-
-	<ol class="microposts">
-		<li>
-			<div class="school-shield">
-				<div class="element">
-				<%= link_to image_tag("http://i1358.photobucket.com/albums/q770/school-questions/Pennnew2_zps39deaf9f.png"), school_path(1) %>
-
-			</div>
-			<h3><%= link_to "University of Pennsylvania", school_path(1) %></h3>
-		</li>
-
-		<li>
-			<div class="school-shield">
-				<div class="element">
-				<%= image_tag("http://i1358.photobucket.com/albums/q770/school-questions/Harvard_Wreath_Logo_1svg_zps0d72a03e.png") %>
-				</div>
-			<h3><%= "Coming soon" %></h3>
-		</li>
-
-		<li>
-			<div class="school-shield">
-				<div class="element">
-				<%= image_tag("http://i1358.photobucket.com/albums/q770/school-questions/1000px-Cornell_Sealsvg_zpsfb179fc8.png") %>
-				</div>
-			<h3><%= "Coming soon" %></h3>
-		</li>
-
-
-	</ol>
-
 
 </div>
