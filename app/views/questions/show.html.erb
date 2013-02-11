@@ -20,7 +20,7 @@
 			<% if(@question.answers.count > 0) %>
 		  		<p><h4><%= pluralize(@answers.count, "Answer") %></h4></p> 
 	  		<% end %>
-			<ol class="microposts">
+			<ol class="answer-list">
 				<%= render @answers %>
 			</ol>
 
