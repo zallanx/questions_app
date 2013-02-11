@@ -21,7 +21,7 @@ $grayMediumLight: #eaeaea;
 /************** universal */
 
 html {
-  overflow-y: scroll;
+  //overflow-y: scroll;
 }
 
 body {
@@ -744,7 +744,7 @@ aside {
     border-top: 0px solid #e8e8e8;
     list-style: none;
   }
-  li.extra-padding {
+  .extra-padding li{
     padding: 46px 0;
   }
 
@@ -754,20 +754,30 @@ aside {
 
 .school-shield{
   overflow: hidden;
-    h3 {
-    font-weight: 500;
-   } 
-  .element{
+  h3 {
+    color: #6f6f6f;
+  }
 
+  .element{
     display: block;
       width: 75px;
       height: 75px;
-      //padding: 20px 20px 20px 20px; //how wide the box is
       float:left;
       text-align: center;
       border-radius: 5px 5px 5px 5px;
       margin-right: 20px;
-      //background-color: grey;
   }
 }
+
+
+.main-heading{
+  position: fixed;
+  float:left;
+  h1 {
+    font-size: 4.6em;
+    color: #006faa;
+  }
+}
+
+
 

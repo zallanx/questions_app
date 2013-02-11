@@ -10,27 +10,31 @@ class QuestionsController < ApplicationController
   end
 
   def show
-
+ 
     @question = Question.find(params[:id])
     @view_count = @question.impressionist_count
     @course = @question.course
     @user = @question.user
     @answers = @question.answers.all
-    @answer = current_user.answers.build
+    @answer = current_user.answers.build unless current_user == nil #what if no current user?
 
 
     #-- If a question has been answered by a user, the form does not show up anymore (tbr)
 
     @list_of_users = [] unless @list_of_users
 
-    @answers.each do |answer|
-      @list_of_users.push(answer.user.username)
+    unless @answers == nil
+      @answers.each do |answer|
+        @list_of_users.push(answer.user.username)
+      end
     end
-
-    if @list_of_users.include?(current_user.username)
-      @do_not_show_form = true
-    else
-      @do_not_show_form = false
+    
+    unless current_user == nil
+      if @list_of_users.include?(current_user.username)
+        @do_not_show_form = true
+      else
+        @do_not_show_form = false
+      end
     end
 
     #---------------------------------------------------------------------------------------

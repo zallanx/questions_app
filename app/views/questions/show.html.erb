@@ -26,10 +26,16 @@
 
 			<section class="answer-form">
 
+				<% if current_user == nil %>
+					Knowing the answer? <%= link_to("Sign in", signin_path) %> or <%= link_to("sign up", signup_path) %> to show the world your powess 
+				<% end %>
+
+
 				<% if(@question.user != current_user) and (@do_not_show_form == false) %>
 					<h4>Your Answer</h4>
 					<%= render 'shared/answer_form' %>
 				<% end %>
+
 			</section>
 		</span>	
 	</div>
