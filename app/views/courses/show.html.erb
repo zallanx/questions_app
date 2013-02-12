@@ -4,18 +4,15 @@
 
 		<div class="sort-nav">
 			<ul>
-				<li><h4><%= link_to "Latest", "#" %></h4></li>
+				<li><h4><%= link_to "Latest", school_course_path(current_school, @course, order: 'latest') %></h4></li>
 				<li><h4><%= link_to "Most Popular", school_course_path(current_school, @course, order: 'most_active') %></h4></li>
 				<li><h4><%= link_to "Unanswered", "#" %></h4></li>
 				<li class="right-ask"><h4><%= link_to "Ask Question", new_question_path(:course => @course.id) %></h4></li>
 			</ul>
-
-
 		</div>
 
 		<br></br>
-		<!-- <p><%= link_to "Ask a new question", new_question_path(:course => @course.id) %> 
-		in <%= @course.name %></p> -->
+
 
 		<ol class="microposts">
 			<%= render @questions %>

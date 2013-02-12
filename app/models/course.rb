@@ -16,16 +16,22 @@ class Course < ActiveRecord::Base
   belongs_to :school
   has_many :questions
   
-  scope :by_questions_count, :order => "questions_count DESC" #works!
+  scope :popular, :order => "questions_count DESC" #works!
+  scope :by_heading, order: "LOWER(heading) ASC, LOWER(name) ASC"
+  scope :by_creation, order: "created_at DESC"
 
 
 
-  # scope :most_answered, joins(:questions).order('questions.answers_count DESC')
 
-  scope :most_answered, joins(:questions).order('questions.answers_count DESC')
+  scope :most_answered, joins(:questions).order('qyayuestions.answers_count DESC')
   .select("courses.id, courses.name, courses.heading, courses.school_id, courses.created_at, courses.updated_at, courses.questions_count, SUM(questions.answers_count) as answers_count")
   .group("courses.id, courses.name, courses.heading, courses.school_id, courses.created_at, courses.updated_at, courses.questions_count")
   .order("answers_count DESC")
+
+  scope :latest_activity, joins(:questions).order('questions.created_at DESC')
+  .select("courses.id, courses.name, courses.heading, courses.school_id, courses.created_at, courses.updated_at, courses.questions_count, SUM(questions.created_at) as created_at")
+  .group("courses.id, courses.name, courses.heading, courses.school_id, courses.created_at, courses.updated_at, courses.questions_count")
+  .order("created_at DESC, name")
 
 
 

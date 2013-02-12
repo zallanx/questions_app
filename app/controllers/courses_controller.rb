@@ -1,9 +1,12 @@
 class CoursesController < ApplicationController #needs an EXAM DATE
-  def index #showing all courses
+  def index 
   	# @courses = current_school.courses.all
-    @courses = current_school.courses.all
-
-
+    if params[:order]
+      sorting_order = params[:order]
+      @courses = current_school.courses.send(sorting_order) #you CAN use scope methods in the child model!
+    else
+      @courses = current_school.courses.by_heading #default
+    end
   end
 
   def show #showing a course's questions
@@ -12,7 +15,7 @@ class CoursesController < ApplicationController #needs an EXAM DATE
       sorting_order = params[:order]
   	 @questions = @course.questions.send(sorting_order) #you CAN use scope methods in the child model!
     else
-      @questions = @course.questions.by_creation_time #default
+      @questions = @course.questions.latest #default
     end
   end
 

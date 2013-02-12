@@ -1,17 +1,19 @@
 <div class="container">
+	<div class="span6">
+	<h2>Add your class</h2>
 
-	<h2><center>New Course</center></h2>
-	<div class="row">
-	  <div class="span6 offset3">
+
 	    <%= form_for([@current_school, @course]) do |f| %>
 
+	      <p><h1> </h1></p>
+	      <h3><%= f.label :heading, "Course heading" %></h3>
 
-	      <%= f.label :heading, "Course heading" %>
-	      <%= f.text_field :heading, placeholder: "eg. 'PHYS 008' " %>
+	      <p><%= f.text_field :heading, placeholder: "ex. PYSC 001" %></p>
 
 
-	      <%= f.label :name, "Course name " %>
-	      <%= f.text_field :name, placeholder: "eg. 'Physics for Architects'" %>
+	      <h3><%= f.label :name, "Course name " %></h3>
+
+	      <p><%= f.text_field :name, placeholder: "ex. Intro to Psychology" %></p>
 
 
 
@@ -19,6 +21,6 @@
 
 	      <%= f.submit "Create course", class: "btn btn-large btn-primary" %>
 	    <% end %>
-	  </div>
+
 	</div>
 </div>

@@ -1,4 +1,6 @@
+<% provide(:title, @user.username) %>
 <div class="container">
+
 
 	<div class="row">
 	  <!-- User stats -->
@@ -10,11 +12,14 @@
 	      </h1>
 	    </section>
 	    <section>
+	    	
 	    </section>
 	  </aside>
-	</div>
 
 	  <!-- questions -->
 	<div class="span8">
+		<p></p>
+		<br></br>
+		<h2 style="text-align: right;">Sup <%= @user.username %>, find your <%= link_to "school", schools_path %> to get started.</h2>
   	</div>	
 </div>
