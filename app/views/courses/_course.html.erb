@@ -22,7 +22,7 @@
 
 		  <span class="timestamp">
 		  	<% if course.questions.first %>
-		    <br>Last <%= link_to "question", question_path(course.questions.first) %> asked <%= time_ago_in_words(course.questions.first.created_at) %> ago.</br>
+		    <br>Last <%= link_to "question", question_path(course.questions.last) %> asked <%= time_ago_in_words(course.questions.last.created_at) %> ago.</br>
 		    <% else %>
 		    <br>Course created <%= time_ago_in_words(course.created_at) %></br>
 		    <% end %>
