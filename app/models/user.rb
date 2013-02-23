@@ -29,7 +29,23 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :a_votes #remove
   has_many :answers
-  
+
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_courses, through: :relationships, source: :followed
+
+  def following?(course)
+    relationships.find_by_followed_id(course.id)
+  end
+
+  def follow!(course)
+    relationships.create!(followed_id: course.id)
+  end
+
+  def unfollow!(course)
+    relationships.find_by_followed_id(course.id).destroy
+  end
+
+
   private
 
 	def create_remember_token

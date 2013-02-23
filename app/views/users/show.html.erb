@@ -19,7 +19,18 @@
 	  <!-- questions -->
 	<div class="span8">
 		<p></p>
+		<h2>Courses followed:</h2>
+		<ol class="course-quick-list">
+			<% @user.followed_courses.each do |course| %>
+				<li><h5><%= course.heading %> - <%= link_to course.name, school_course_path(course.school, course) %></h5></li>
+			<% end %>
+		</ol>
 		<br></br>
-		<h2 style="text-align: right;">Sup <%= @user.username %>, find your <%= link_to "school", schools_path %> to get started.</h2>
+		<p><h2>My recent questions:</h2></p>
+		<ol class="question-quick-list">
+			<% @user.questions.all(:limit => 5).each do |question| %>
+				<li><h5><%= link_to question.title, question_path(question) %></h5></li>
+			<% end %>
+		</ol>
   	</div>	
 </div>

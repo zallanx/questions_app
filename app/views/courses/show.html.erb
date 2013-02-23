@@ -2,6 +2,8 @@
 
 		<h1><%= @course.heading %> - <%= @course.name %></h1>
 
+		<%= render 'follow_form'  %>
+
 		<div class="sort-nav">
 			<ul>
 				<li><h4><%= link_to "Latest", school_course_path(current_school, @course, order: 'latest') %></h4></li>

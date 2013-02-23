@@ -1,0 +1,11 @@
+<% if current_user %>
+  <div id="follow_form">
+  <% if current_user.following?(@course) %>
+    <%= render 'unfollow' %>
+  <% else %>
+    <%= render 'follow' %>
+  <% end %>
+  </div>
+<% else %>
+  Sign in to start following this course!
+<% end %>

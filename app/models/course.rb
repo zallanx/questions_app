@@ -13,11 +13,17 @@
 
 class Course < ActiveRecord::Base
   attr_accessible :heading, :name, :questions_count 
+
+  before_save { |course| course.heading = heading.upcase }
+
   belongs_to :school
   has_many :questions
+
+  has_many :relationships, foreign_key: "followed_id", dependent: :destroy
+  has_many :followers, through: :relationships, source: :follower
   
   scope :popular, :order => "questions_count DESC" #works!
-  scope :by_heading, order: "LOWER(heading) ASC, LOWER(name) ASC"
+  scope :by_heading, order: "LOWER(heading) ASC, LOWER(name) ASC" #default sort
   scope :by_creation, order: "created_at DESC"
 
 
