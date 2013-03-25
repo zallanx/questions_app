@@ -17,10 +17,12 @@ class User < ActiveRecord::Base
   has_secure_password
 
   before_save { |user| user.email = email.downcase }
-  before_save :create_remember_token #a call to a private method
+  before_save :create_remember_token
+  #before_save :default_values
 
   validates :username, presence: true, length: { minimum: 4, maximum: 50 }, uniqueness: { case_sensitive: false }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 8 }
   validates :password_confirmation, presence: true
@@ -51,5 +53,10 @@ class User < ActiveRecord::Base
 	def create_remember_token
 		self.remember_token = SecureRandom.urlsafe_base64 #self used to ensure "User.rememeber_token" is assigned
 	end
+
+  def default_values
+    self.admin = false
+    #self.follow!(Course.first) //only in alpha mode
+  end
 
 end

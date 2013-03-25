@@ -3,9 +3,9 @@ class CoursesController < ApplicationController #needs an EXAM DATE
   	# @courses = current_school.courses.all
     if params[:order]
       sorting_order = params[:order]
-      @courses = current_school.courses.send(sorting_order) #you CAN use scope methods in the child model!
+      @courses = current_school.courses.send(sorting_order).paginate(per_page: 10, page: params[:page]) #you CAN use scope methods in the child model!
     else
-      @courses = current_school.courses.by_heading #default
+      @courses = current_school.courses.by_heading.paginate(per_page: 10, page: params[:page]) #default
     end
   end
 
@@ -13,9 +13,9 @@ class CoursesController < ApplicationController #needs an EXAM DATE
   	@course = Course.find(params[:id])
     if params[:order]
       sorting_order = params[:order]
-  	 @questions = @course.questions.send(sorting_order) #you CAN use scope methods in the child model!
+  	 @questions = @course.questions.send(sorting_order).paginate(per_page: 15, page: params[:page]) #you CAN use scope methods in the child model!
     else
-      @questions = @course.questions.latest #default
+      @questions = @course.questions.latest.paginate(per_page: 15, page: params[:page]) #default
     end
   end
 

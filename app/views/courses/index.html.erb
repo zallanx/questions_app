@@ -2,8 +2,8 @@
 		<h1><%= current_school.name %></h1>
 		<div class="sort-nav">
 			<ul>
-				<li class="courses"><h4><%= link_to "Name", school_courses_path(current_school, order: 'by_heading') %></h4></li>
 				<li class="courses"><h4><%= link_to "Recent Activity", school_courses_path(current_school, order: 'latest_activity') %></h4></li>
+				<li class="courses"><h4><%= link_to "Name", school_courses_path(current_school, order: 'by_heading') %></h4></li>
 				<li class="courses"><h4><%= link_to "Most Popular", school_courses_path(current_school, order: 'popular') %></h4></li>
 				<li class="add-course"><h4><%= link_to "Add Your Class", new_school_course_path(current_school) %></h4></li>
 			</ul>
@@ -12,5 +12,11 @@
 		<br></br>
 		<ol class="course-list">
 			<%= render @courses %>
-		</ol>	
+		</ol>
+
+		<div class="back-nav">
+			<ul>
+				<li class="back-to"><h4><%= link_to "← back to schools" , schools_path %></h4></li>
+			</ul>
+		</div>	
 </div>

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="span8">
+	<br><h2>Edit your answer</h2></br>
+
+	    <%= form_for(@answer) do |f| %>
+
+	      <%= f.label :content, "Answer content" %>
+	      <%= f.text_area :content, class: "wysihtml5" %>
+
+	      <%= f.submit "Edit answer", class: "btn btn-large btn-primary" %>
+	    <% end %>
+
+  </div>
+
+</div>

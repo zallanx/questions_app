@@ -2,14 +2,31 @@
 
 		<h1><%= @course.heading %> - <%= @course.name %></h1>
 
-		<%= render 'follow_form'  %>
+		
 
 		<div class="sort-nav">
 			<ul>
 				<li><h4><%= link_to "Latest", school_course_path(current_school, @course, order: 'latest') %></h4></li>
 				<li><h4><%= link_to "Most Popular", school_course_path(current_school, @course, order: 'most_active') %></h4></li>
-				<li><h4><%= link_to "Unanswered", "#" %></h4></li>
+				<li><h4><%= link_to "Unanswered", school_course_path(current_school, @course, order: 'unanswered') %></h4></li>
 				<li class="right-ask"><h4><%= link_to "Ask Question", new_question_path(:course => @course.id) %></h4></li>
+				<li class="follow"><h4>
+					<% if current_user %>
+						<% if current_user.following?(@course) %>
+							<%= form_for(current_user.relationships.find_by_followed_id(@course),
+							             html: { method: :delete }) do |f| %>
+							  <%= link_to_function "Unfollow Course", '$(this).closest("form").submit()' %>
+							<% end %>
+						<% else %>
+							<%= form_for(current_user.relationships.build(followed_id: @course.id)) do |f| %>
+							  <%= f.hidden_field :followed_id %>
+							  <%= link_to_function "Follow Course", '$(this).closest("form").submit()' %>
+							<% end %>
+						<% end %>
+					<% end %>
+				</h4></li>
+				
+				
 			</ul>
 		</div>
 
@@ -20,8 +37,17 @@
 			<%= render @questions %>
 		</ol>
 
+		<%= will_paginate @questions %>
 
-		<p><%= link_to "Back to ", school_courses_path(current_school) %><%= current_school.name %>'s courses</p>
+
+
+		<p>
+		 <div class="back-nav">
+			<ul>
+				<li class="back-to"><h4><%= link_to "← back to #{@course.school.name}" , school_courses_path(@course.school) %></h4></li>
+			</ul>
+		 </div>
+		</p>
 
 
 </div>

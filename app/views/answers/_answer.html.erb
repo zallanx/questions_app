@@ -33,10 +33,10 @@
         <p><%= answer.content.html_safe %></p>
         <span class="timestamp">
           <br><b><%= pluralize(answer.a_votes.where(:up => true).count - answer.a_votes.where(:up => false).count, "vote") %> </b> • <%= link_to answer.user.username, answer.user %> • 
-              <%= time_ago_in_words(answer.created_at) %> ago
+              <%= time_ago_in_words(answer.updated_at) %> ago
               <% if current_user %>  
                 <% if answer.user.id == current_user.id %>
-                  • <%= link_to "edit", "#" %>  
+                  • <%= link_to "edit", edit_answer_path(answer) %>  
                 <% end %>
                 <% if current_user?(answer.user) %>
                   • <%= link_to "delete", answer, method: :delete,

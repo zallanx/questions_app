@@ -18,7 +18,7 @@
       </div>
 
       <div class="course-element">
-      	<h3><%= course.heading %> - <%= link_to course.name, school_course_path(current_school, course) %></h3>
+      	<h3><%= course.heading %> - <%= link_to truncate(course.name, length: 60), school_course_path(current_school, course) %></h3>
 
 		  <span class="timestamp">
 		  	<% if course.questions.first %>

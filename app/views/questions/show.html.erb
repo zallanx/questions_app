@@ -38,5 +38,10 @@
 
 			</section>
 		</span>	
+		<div class="back-nav">
+			<ul>
+				<li class="back-to"><h4><%= link_to "← back to questions" , school_course_path(@question.course.school, @question.course, order: 'latest') %></h4></li>
+			</ul>
+		</div>
 	</div>
 </div>

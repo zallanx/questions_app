@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user #new sign ups are automatically logged in
       # UserMailer.registration_confirmation(@user).deliver
-      flash[:success] = "Welcome to Asks!" #assign the :success symbol to that message
+      flash[:success] = "Welcome to Classfuku!" #assign the :success symbol to that message
       redirect_to current_user
     else
       render 'new'

@@ -4,6 +4,8 @@
 
 
 	    <%= form_for(@question) do |f| %>
+
+	    <%= render 'shared/error_messages', object: f.object %>
  
 
 	      <%= f.label :title, "Question title" %>
@@ -12,7 +14,7 @@
 	      <%= f.label :content, "Question content" %>
 	      <%= f.text_area :content, class: "wysihtml5" %>
 
-	      <%= f.submit "Create question", class: "btn btn-large btn-primary" %>
+	      <%= f.submit "Edit question", class: "btn btn-large btn-primary" %>
 	    <% end %>
 
   </div>

@@ -18,17 +18,37 @@
 	  <!-- questions -->
 	<div class="span6">
 		<p></p>
-		<h2 class="padded-top">My courses:</h2>
+		<h2 class="padded-top">
+			<% if @user == current_user %>
+				My courses:
+			<% else %>
+				<%= @user.username %>'s courses
+			<% end %>
+		</h2>
 		<ol class="course-quick-list">
-			<% @user.followed_courses.each do |course| %>
-				<li><h5><%= course.heading %> - <%= link_to course.name, school_course_path(course.school, course) %></h5></li>
+			<% if @user.followed_courses.count > 0 %>
+				<% @user.followed_courses.each do |course| %>
+					<li><h5><%= course.heading %> - <%= link_to course.name, school_course_path(course.school, course) %></h5></li>
+				<% end %>
+			<% elsif @user.followed_courses.count == 0 && (@user == current_user) %>
+				<li><h5>(The courses you follow will show up here.)  </br></br>Find your <%= link_to "school", schools_path %> to get started.</h5></li>
 			<% end %>
 		</ol>
 		<br></br>
-		<p><h2 class="padded-bottom">My recent questions:</h2></p>
+		<p><h2 class="padded-bottom">
+			<% if @user == current_user %>
+				My recent questions:
+			<% else %>
+				<%= @user.username %>'s recent questions
+			<% end %>
+		</h2></p>
 		<ol class="question-quick-list">
-			<% @user.questions.all(:limit => 5).each do |question| %>
-				<li><h5><%= link_to question.title, question_path(question) %></h5></li>
+			<% @user.questions.latest5.each do |question| %>
+				<% if question.answers_count > 0 %> <!-- bolded font for questions with answers -->
+					<li><h6><%= link_to question.title, question_path(question) %></h6></li> 
+				<% else %>
+					<li><h5><%= link_to question.title, question_path(question) %></h5></li>
+				<% end %>
 			<% end %>
 		</ol>
   	</div>	
