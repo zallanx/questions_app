@@ -27,10 +27,10 @@ upv6.png: upv6-e43020b59b1fda1064c3b35847338643.png
 upv6/index.png: upv6-e43020b59b1fda1064c3b35847338643.png
 upv7.png: upv7-3cbee95e3eb7078c10513ed6aae67f6a.png
 upv7/index.png: upv7-3cbee95e3eb7078c10513ed6aae67f6a.png
-application.js: application-8013e9b87e0876a30e76f1d83950136f.js
-application/index.js: application-8013e9b87e0876a30e76f1d83950136f.js
-application.css: application-4d2641a916f4dd17237aa26838f6e97d.css
-application/index.css: application-4d2641a916f4dd17237aa26838f6e97d.css
+application.js: application-13d4d675002cabab8a7bb09a23ba8f0a.js
+application/index.js: application-13d4d675002cabab8a7bb09a23ba8f0a.js
+application.css: application-e87be20d961bbd93b3fda75424310256.css
+application/index.css: application-e87be20d961bbd93b3fda75424310256.css
 bootstrap-wysihtml5.js: bootstrap-wysihtml5-3f48811a708f442d4657221f2dca8a19.js
 bootstrap-wysihtml5/index.js: bootstrap-wysihtml5-3f48811a708f442d4657221f2dca8a19.js
 bootstrap-wysihtml5.css: bootstrap-wysihtml5-3c7803729a02af5136113ce7cefd2170.css
