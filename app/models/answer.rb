@@ -23,9 +23,9 @@ class Answer < ActiveRecord::Base
   
 
   def accepted?
-  	return false if new_record? 
-  	question.try( :accepted_answer_id ) == id
-  	# an alternative is to use question.try( :accepted_answer ) == self
+    return false if new_record? 
+    question.try( :accepted_answer_id ) == id
+    # an alternative is to use question.try( :accepted_answer ) == self
   end
 
 end

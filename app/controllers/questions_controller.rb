@@ -76,7 +76,7 @@ class QuestionsController < ApplicationController
   def destroy
   end
 
-  def accept_answer
+   def accept_answer
     @question = Question.find( params[:id] )
     if @question.update_attributes( accepted_answer_id: params[:answer_id] )
       # ...render the js that updates your view (for example, 
@@ -98,8 +98,8 @@ class QuestionsController < ApplicationController
     else
       redirect_to question_path(@question)
     end
-  end  
-
+  end
+  
   private
 
   def correct_user

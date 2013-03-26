@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130213235627) do
+ActiveRecord::Schema.define(:version => 20130326001525) do
 
   create_table "a_votes", :force => true do |t|
     t.integer  "user_id"
@@ -68,12 +68,13 @@ ActiveRecord::Schema.define(:version => 20130213235627) do
     t.text     "content"
     t.integer  "type"
     t.integer  "points"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "course_id"
     t.integer  "user_id"
     t.boolean  "answer_status"
-    t.integer  "answers_count", :default => 0
+    t.integer  "answers_count",      :default => 0
+    t.integer  "accepted_answer_id"
   end
 
   create_table "relationships", :force => true do |t|

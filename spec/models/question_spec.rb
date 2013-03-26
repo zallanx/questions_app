@@ -12,8 +12,8 @@
 #  course_id          :integer
 #  user_id            :integer
 #  answer_status      :boolean
-#  accepted_answer_id :integer
 #  answers_count      :integer          default(0)
+#  accepted_answer_id :integer
 #
 
 require 'spec_helper'

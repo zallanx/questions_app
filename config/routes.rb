@@ -4,7 +4,7 @@ SchoolQuestions::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :votes, only: [:index, :create]
   resources :a_votes, only: [:index, :create] #remove
-  resources :answers, only: [:create, :edit, :update, :destroy]
+  resources :answers, only: [:create, :update, :destroy]
   resources :relationships, only: [:create, :destroy]
 
   resources :schools do
